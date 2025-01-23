@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
+import './Logout.css';
 
 function DateTimeDisplay() {
   const [dateTime, setDateTime] = useState(new Date());
@@ -93,79 +94,61 @@ function DateTimeDisplay() {
   return (
     <>
     <Navbar/>
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h1 style={{ color: "black" }}>Store Logout Time</h1>
+    <div>
+      <h1 >Store Logout Time</h1>
 
-      <div style={{ marginTop: "20px" }}>
-        <label style={{ fontSize: "16px" }}>
+      <div>
+        <label>
           Name:
           <input
             type="text"
             value={inputName}
             onChange={(e) => setInputName(e.target.value)}
             placeholder="Enter your name"
-            style={{
-              marginLeft: "10px",
-              padding: "5px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
+          
           />
         </label>
         <br />
-        <label style={{ fontSize: "16px", marginTop: "10px" }}>
+        <label >
           Email:
           <input
             type="email"
             value={inputEmail}
             onChange={(e) => setInputEmail(e.target.value)}
             placeholder="Enter your email"
-            style={{
-              marginLeft: "10px",
-              padding: "5px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
+           
           />
         </label>
       </div>
 
-      <h2 style={{ color: "black" }}>Current Date and Time</h2>
-      <p style={{ fontSize: "20px", fontWeight: "bold", color: "black" }}>
+      <h2 >Current Date and Time</h2>
+      <p >
         {formatDateTime(dateTime)}
       </p>
 
       <button
         onClick={storeLogoutTime}
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          backgroundColor: "red",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
+       
       >
         Store Logout Time
       </button>
 
       {statusMessage && (
-        <p style={{ color: statusMessage.includes("Error") ? "red" : "green", marginTop: "20px" }}>
+        <p >
           {statusMessage}
         </p>
       )}
 
-      <div style={{ marginTop: "50px" }}>
-        <h1 style={{ color: "black" }}>Your Location</h1>
+      <div>
+        <h1 >Your Location</h1>
         {latitude && longitude ? (
-          <div style={{ marginTop: "20px" }}>
+          <div>
             <h3>Location:</h3>
-            <p style={{ color: "black" }}>Latitude: {latitude}</p>
-            <p style={{ color: "black" }}>Longitude: {longitude}</p>
+            <p >Latitude: {latitude}</p>
+            <p >Longitude: {longitude}</p>
           </div>
         ) : (
-          <p style={{ color: "black", marginTop: "20px" }}>Fetching your location...</p>
+          <p >Fetching your location...</p>
         )}
       </div>
     </div>

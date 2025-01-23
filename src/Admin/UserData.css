@@ -74,9 +74,9 @@ h1 {
     cursor: pointer;
   }
   
-  button[type="submit"]:hover {
+  /* button[type="submit"]:hover {
     background-color: #0056b3;
-  }
+  } */
   
 /* Responsive Design */
 @media (max-width: 768px) {

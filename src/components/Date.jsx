@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from './Navbar';
+import './Date.css'
 
 function DateTimeDisplay() {
   const [dateTime, setDateTime] = useState(new Date());
@@ -106,61 +107,45 @@ function DateTimeDisplay() {
   return (
     <>
     <Navbar/>
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
-      <h1 style={{ color: "black" }}>Store Login Time</h1>
+    <div className="date-container"
+    style={{width:"1600px" }}
+    >
+      <h1 >Store Login Time</h1>
 
       {/* Input Fields for User Name and Email */}
-      <div style={{ marginTop: "20px" }}>
-        <label style={{ fontSize: "16px" }}>
+      <div className="data" >
+        <label>
           Name:
           <input
             type="text"
             value={inputName}
             onChange={(e) => setInputName(e.target.value)}
             placeholder="Enter your name"
-            style={{
-              marginLeft: "10px",
-              padding: "5px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
+           
           />
         </label>
         <br />
-        <label style={{ fontSize: "16px", marginTop: "10px" }}>
+        <label >
           Email:
           <input
             type="email"
             value={inputEmail}
             onChange={(e) => setInputEmail(e.target.value)}
             placeholder="Enter your email"
-            style={{
-              marginLeft: "10px",
-              padding: "5px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
+           
           />
         </label>
       </div>
-
-      <h2 style={{ color: "black" }}>Current Date and Time</h2>
-      <p style={{ fontSize: "20px", fontWeight: "bold", color: "black" }}>
+      <div className="date-store">
+      <h2 style={{color:'black'}}>Current Date and Time</h2>
+      <p className="time" style={{color:'black'}}>
         {formatLoginTime(dateTime)} {/* Display formatted time in IST */}
       </p>
-
+      </div>
       {/* Store Date and Time Button */}
       <button
         onClick={storeDateTime}
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          backgroundColor: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
+       
       >
         Store Date and Time
       </button>
@@ -168,10 +153,7 @@ function DateTimeDisplay() {
       {/* Display status message (success or error) */}
       {statusMessage && (
         <p
-          style={{
-            color: statusMessage.includes("Error") ? "red" : "green",
-            marginTop: "20px",
-          }}
+          
         >
           {statusMessage}
         </p>
@@ -179,31 +161,22 @@ function DateTimeDisplay() {
 
       <Link
         to="/logout"
-        style={{
-          marginTop: "20px",
-          marginLeft: "20px",
-          padding: "10px 20px",
-          backgroundColor: "red",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-        }}
+       
       >
         Stop
       </Link>
 
       {/* Display the latitude and longitude */}
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h1 style={{color:'black'}}>Your Location</h1>
+      <div className="location" >
+        <h1>Your Location</h1>
         {latitude && longitude ? (
-          <div style={{ marginTop: "20px" }}>
+          <div>
             <h3>Location:</h3>
-            <p style={{ color: "black" }}>Latitude: {latitude}</p>
-            <p style={{ color: "black" }}>Longitude: {longitude}</p>
+            <p >Latitude: {latitude}</p>
+            <p>Longitude: {longitude}</p>
           </div>
         ) : (
-          <p style={{ color: "black", marginTop: "20px" }}>
+          <p >
             Fetching your location...
           </p>
         )}

@@ -61,44 +61,43 @@ const Home = () => {
     };
 
     return (
-        <div className='fullscreen'>
-            <div className="loginContainer">
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <h2 style={{color:'black'}}>Login</h2>
-                    {error && <p className="error">{error}</p>}
-
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-
-                    <button type="submit" className="btn">Login</button>
-
-                    <p className='sign'>
-                        Don't have an account? <Link to="/signup" style={{color:''}}>Sign up</Link>
-                    </p>
-                </form>
+        <div className="login-page fullscreen">
+        <form className="login-form" onSubmit={handleSubmit}>
+            <h2 style={{ color: 'black' }}>Login</h2>
+            {error && <p className="error">{error}</p>}
+    
+            <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
             </div>
-        </div>
+    
+            <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+    
+            <button type="submit" className="btn">Login</button>
+    
+            <p className="sign">
+                Don't have an account? <Link to="/signup" style={{ color: 'blue' }}>Sign up</Link>
+            </p>
+        </form>
+    </div>
+    
     );
 };
 
